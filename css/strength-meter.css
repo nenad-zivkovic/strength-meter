@@ -8,6 +8,8 @@
  * Author: Kartik Visweswaran
  * Year: 2013
  * For more Yii related demos visit http://demos.krajee.com
+ *
+ * Optimized for Yii2 improved application templates by Nenad Zivkovic.
  */
 .kv-container {
     width: 100%;
@@ -21,7 +23,8 @@
 }
 
 .kv-meter-container {
-    width: 130px;
+    width: 80px;
+    padding-left: 10px;
 }
 
 .kv-meter {
@@ -37,7 +40,7 @@
     background: none repeat scroll 0 0 #333;
     border: 1px solid #333;
     height: 16px;
-    width: 100px;
+    width: 82px;
     margin: 0 auto;
     border-radius: 4px;
 }
@@ -47,7 +50,7 @@
     background-repeat: no-repeat;
     background-position: 0 0;
     position: absolute;
-    width: 98px;
+    width: 80px;
     height: 14px;
     z-index: 0;
     border-radius: 2px;
@@ -57,7 +60,7 @@
     font-weight: bold;
     font-size: 75%;
     position: absolute;
-    width: 98px;
+    width: 80px;
     z-index: 10;
     border-radius: 2px;
 }
