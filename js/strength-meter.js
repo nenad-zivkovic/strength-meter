@@ -1,19 +1,13 @@
 /*!
- * @copyright &copy; Kartik Visweswaran, Krajee.com, 2013
- * @version 1.0.0
- * 
  * A dynamic strength meter for password input validation with various configurable options.
  * 
  * The strength scoring calculation is inspired from [password meter](http://passwordmeter.com) 
  * created by Jeff Todnem.
  * 
- * Built originally for Yii Framework 2.0. But is usable across frameworks & scenarios.
- * For more JQuery plugins visit http://plugins.krajee.com
- * For more Yii related demos visit http://demos.krajee.com
- * @see http://plugins.krajee.com/strength-meter
- * @see http://github.com/kartik-v/strength-meter
- *
+ * Built originally for Yii Framework 2.0 by Kartik Visweswaran.
  * Optimized for Yii2 improved application templates by Nenad Zivkovic
+ * 
+ * @see http://github.com/nenad-zivkovic/yii2-strength-meter
  */
 (function ($) {
     "use strict";
@@ -236,13 +230,13 @@
         this.verdictClasses = options.verdictClasses;
         this.verdictTitles = options.verdictTitles;
         this.verdicts = this.generateVerdicts();
-        this.toggleClass = isEmpty(options.toggleClass) ? 'kv-toggle' : options.toggleClass;
+        this.toggleClass = isEmpty(options.toggleClass) ? 'nz-toggle' : options.toggleClass;
         this.toggleTitle = options.toggleTitle;
-        this.meterClass = isEmpty(options.meterClass) ? 'kv-meter' : options.meterClass;
-        this.scoreBarClass = isEmpty(options.scoreBarClass) ? 'kv-scorebar' : options.scoreBarClass;
-        this.scoreClass = isEmpty(options.scoreClass) ? 'kv-score' : options.scoreClass;
-        this.verdictClass = isEmpty(options.verdictClass) ? 'kv-verdict' : options.verdictClass;
-        this.containerClass = isEmpty(options.containerClass) ? 'kv-password' : options.containerClass;
+        this.meterClass = isEmpty(options.meterClass) ? 'nz-meter' : options.meterClass;
+        this.scoreBarClass = isEmpty(options.scoreBarClass) ? 'nz-scorebar' : options.scoreBarClass;
+        this.scoreClass = isEmpty(options.scoreClass) ? 'nz-score' : options.scoreClass;
+        this.verdictClass = isEmpty(options.verdictClass) ? 'nz-verdict' : options.verdictClass;
+        this.containerClass = isEmpty(options.containerClass) ? 'nz-password' : options.containerClass;
         this.inputClass = options.inputClass;
         this.inputTemplate = options.inputTemplate;
         this.meterTemplate = options.meterTemplate;
@@ -256,10 +250,10 @@
         this.initialValue = isEmpty(this.$element.val()) ? 0 : this.$element.val();
         var n = getScore(this.initialValue, this.rules);
         this.$container = this.createContainer();
-        this.$elToggle = this.$container.find('.kv-toggle');
-        this.$elScorebar = this.$container.find('.kv-scorebar');
-        this.$elScore = this.$container.find('.kv-score');
-        this.$elVerdict = this.$container.find('.kv-verdict');
+        this.$elToggle = this.$container.find('.nz-toggle');
+        this.$elScorebar = this.$container.find('.nz-scorebar');
+        this.$elScore = this.$container.find('.nz-score');
+        this.$elVerdict = this.$container.find('.nz-verdict');
         this.$elScoreInput = $(document.createElement("input")).attr('type', 'hidden').val(n);
         this.$container.append(this.$elScoreInput);
         this.paint(n);
@@ -343,7 +337,7 @@
             output = output.replace('{meter}', self.renderMeter());
             var container = $(document.createElement("div")).attr({"class": self.containerClass}).html(output);
             self.$element.before(container);
-            var holder = container.find('.kv-temporary-input');
+            var holder = container.find('.nz-temporary-input');
             var el = self.$element.detach();
             holder.before(el);
             holder.remove();
@@ -364,7 +358,7 @@
         renderInput: function () {
             var self = this, output = self.inputTemplate;
             self.$element.removeClass(self.inputClass).addClass(self.inputClass);
-            output = output.replace('{input}', '<div class="kv-temporary-input"></div>');
+            output = output.replace('{input}', '<div class="nz-temporary-input"></div>');
             output = output.replace('{toggle}', self.renderToggle());
             return output;
         },
@@ -375,7 +369,7 @@
                 output = output.replace('{scorebar}', '<div class="' + self.scoreBarClass + '"></div>');
                 output = output.replace('{score}', '<div class="' + self.scoreClass + '"></div>');
                 output = output.replace('{verdict}', '<div class="' + self.verdictClass + '"></div>');
-                var css = self.$element.attr('disabled') ? self.meterClass + ' kv-disabled' : self.meterClass;
+                var css = self.$element.attr('disabled') ? self.meterClass + ' nz-disabled' : self.meterClass;
                 return '<div class="' + css + '">' + output + '</div>';
             }
             return '';
@@ -409,15 +403,15 @@
         showMeter: true,
         toggleMask: true,
         inputTemplate: '<div class="input-group">\n{input}\n<span class="input-group-addon">{toggle}</span>\n</div>',
-        meterTemplate: '<div class="kv-scorebar-border">{scorebar}\n{score}</div>\n{verdict}',
-        mainTemplate: '<table class="kv-container"><tr>\n<td>{input}</td>\n<td class="kv-meter-container"W>{meter}</td>\n</tr></table>',
-        meterClass: 'kv-meter',
-        scoreBarClass: 'kv-scorebar',
-        scoreClass: 'kv-score',
-        verdictClass: 'kv-verdict',
-        containerClass: 'kv-password',
+        meterTemplate: '<div class="nz-scorebar-border">{scorebar}\n{score}</div>\n{verdict}',
+        mainTemplate: '<table class="nz-container"><tr>\n<td>{input}</td>\n<td class="nz-meter-container"W>{meter}</td>\n</tr></table>',
+        meterClass: 'nz-meter',
+        scoreBarClass: 'nz-scorebar',
+        scoreClass: 'nz-score',
+        verdictClass: 'nz-verdict',
+        containerClass: 'nz-password',
         inputClass: 'form-control',
-        toggleClass: 'kv-toggle',
+        toggleClass: 'nz-toggle',
         toggleTitle: 'Show/Hide Password',
         verdictTitles: {
             0: 'Too Short',
@@ -463,14 +457,12 @@
 }(jQuery));
 
 /**
- * =========================================================================
  * Fade in strength meter, since we are not diplaying it by default.
- * =========================================================================
  */
 (function ($) {
 
     $( "input[type='password']" ).focus(function() {
-        $(".kv-meter-container").fadeIn(2000);
+        $(".nz-meter-container").fadeIn(2000);
     });
 
 }(jQuery));

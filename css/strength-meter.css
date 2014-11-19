@@ -1,42 +1,34 @@
 /*!
- * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2013
- * @package yii2-password
- * @version 1.0.0
- *
- * Password Strength Meter
- * Modified and built for Yii Framework 2.0
- * Author: Kartik Visweswaran
- * Year: 2013
- * For more Yii related demos visit http://demos.krajee.com
- *
+ * Password Strength Meter.
+ * Modified and built for Yii Framework 2.0 by Kartik Visweswaran.
  * Optimized for Yii2 improved application templates by Nenad Zivkovic.
  */
-.kv-container {
+.nz-container {
     width: 100%;
     margin: 0;
     padding: 0;
     border: 0;
 }
 
-.kv-container td {
+.nz-container td {
     vertical-align: middle;
 }
 
-.kv-meter-container {
+.nz-meter-container {
     width: 80px;
     padding-left: 10px;
 }
 
-.kv-meter {
+.nz-meter {
     text-align: center;
 }
 
-.kv-disabled {
+.nz-disabled {
     opacity: .65;
     cursor: not-allowed;
 }
 
-.kv-scorebar-border {
+.nz-scorebar-border {
     background: none repeat scroll 0 0 #333;
     border: 1px solid #333;
     height: 16px;
@@ -45,7 +37,7 @@
     border-radius: 4px;
 }
 
-.kv-scorebar {
+.nz-scorebar {
     background-image: url(../img/bg_strength_gradient.jpg);
     background-repeat: no-repeat;
     background-position: 0 0;
@@ -56,7 +48,7 @@
     border-radius: 2px;
 }
 
-.kv-score {
+.nz-score {
     font-weight: bold;
     font-size: 75%;
     position: absolute;
@@ -65,14 +57,14 @@
     border-radius: 2px;
 }
 
-.kv-score-0, .kv-score-1, .kv-score-5 {
+.nz-score-0, .nz-score-1, .nz-score-5 {
     color: #fff;
 }
 
-.kv-score-2, .kv-score-3, .kv-score-4 {
+.nz-score-2, .nz-score-3, .nz-score-4 {
     color: #333;
 }
 
-.kv-verdict {
+.nz-verdict {
     width: 100%;
 }
